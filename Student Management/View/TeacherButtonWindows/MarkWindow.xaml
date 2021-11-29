@@ -1,0 +1,81 @@
+﻿<Window x:Class="Student_Management.TeacherButtonWindows.MarkWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Student_Management.TeacherButtonWindows"
+        mc:Ignorable="d"
+        Title="MarkWindow" Height="640" Width="400">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Border  Grid.ColumnSpan="1">
+            <Border.Background>
+                <LinearGradientBrush>
+
+                    <GradientStop Color="#FFA9A9A9" Offset="0.0"/>
+                    <GradientStop Color="#FF2F4F4F" Offset="1"/>
+
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+
+        <StackPanel Orientation="Vertical" Height="609" VerticalAlignment="Bottom">
+
+            <StackPanel Orientation="Vertical">
+                <ComboBox x:Name="LectureCombo" Height="29" Margin="97,20,82,0"/>
+
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical">
+                <ComboBox Height="29 " Margin="97,20,82,0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical">
+                <ComboBox Height="29 " Margin="97,20,82,0"/>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="MarkBox" FontFamily="Helvetica"
+                             FontWeight="Light"
+                             Text="Enter Mark"
+                             FontSize="20"
+                             HorizontalAlignment="Center"
+                             Foreground="White"
+                             Background="Transparent"
+                             BorderThickness="0"
+                             Width="235"
+                             HorizontalContentAlignment="Left"
+                             Opacity="0.5"
+                             Height="35"
+                             Margin="55,120,0,0"/>
+
+            </StackPanel>
+            <Border Width="277"
+                        Height="2"
+                        Background="White"
+                        Opacity="0.5"/>
+
+
+            <StackPanel Orientation="Vertical">
+                <Button x:Name="Savebtn" Content="Save" Height="35" Margin="89,180,82,0" 
+                    RenderTransformOrigin="0.223,4.883"
+                    Style="{StaticResource LoginStyle}"/>
+
+                <Button x:Name="Exitbtn" Content="Exit" Height="35" Margin="89,20,82,0" 
+                    RenderTransformOrigin="0.223,4.883"
+                    Style="{StaticResource LoginStyle}"/>
+
+
+            </StackPanel>
+
+
+        </StackPanel>
+
+
+    </Grid>
+</Window>
