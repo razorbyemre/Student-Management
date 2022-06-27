@@ -1,11 +1,10 @@
 ﻿<Window x:Class="Student_Management.TeacherButtonWindows.MarkWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Student_Management.TeacherButtonWindows"
         mc:Ignorable="d"
-        Title="MarkWindow" Height="640" Width="400">
+        Title="MarkWindow" Height="640" Width="400" Loaded="MarkWindow_Loaded">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -28,15 +27,14 @@
 
             <StackPanel Orientation="Vertical">
                 <ComboBox x:Name="LectureCombo" Height="29" Margin="97,20,82,0"/>
-
             </StackPanel>
 
             <StackPanel Orientation="Vertical">
-                <ComboBox Height="29 " Margin="97,20,82,0"/>
+                <ComboBox x:Name="StudentCombo" Height="29 " Margin="97,20,82,0"/>
             </StackPanel>
 
             <StackPanel Orientation="Vertical">
-                <ComboBox Height="29 " Margin="97,20,82,0"/>
+                <ComboBox x:Name="TypeMarkCombo" Height="29 " Margin="97,20,82,0"/>
             </StackPanel>
             
             <StackPanel Orientation="Horizontal">
@@ -62,13 +60,20 @@
 
 
             <StackPanel Orientation="Vertical">
+                
+                
                 <Button x:Name="Savebtn" Content="Save" Height="35" Margin="89,180,82,0" 
                     RenderTransformOrigin="0.223,4.883"
-                    Style="{StaticResource LoginStyle}"/>
+                    Style="{StaticResource LoginStyle}" Click="Savebtn_Click"/>
+
+              
+
 
                 <Button x:Name="Exitbtn" Content="Exit" Height="35" Margin="89,20,82,0" 
                     RenderTransformOrigin="0.223,4.883"
-                    Style="{StaticResource LoginStyle}"/>
+                    Style="{StaticResource LoginStyle}" Click="Exitbtn_Click"/>
+                
+                
 
 
             </StackPanel>

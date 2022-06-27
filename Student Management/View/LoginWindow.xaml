@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Student_Management"
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="450" Width="380"
+        Title="LoginWindow" Height="550" Width="380"
         AllowsTransparency="True" Background="Transparent"
         WindowStyle="None" ResizeMode="NoResize"
         MouseDown="LoginWindow_OnMouseDown"
@@ -45,7 +45,7 @@
             </Border>
 
 
-            <StackPanel  Grid.ColumnSpan="2" Margin="0,100,0,99">
+            <StackPanel  Grid.ColumnSpan="2" Margin="0,110,0,99">
                 <!--<Image Source="Images/House.png" Width="80"/>-->
 
                 <TextBlock Text="Student Management"
@@ -64,7 +64,7 @@
 
             <StackPanel Grid.Row="1" Grid.ColumnSpan="2" >
                 <StackPanel Orientation="Horizontal">
-                    <TextBox FontFamily="Helvetica"
+                    <TextBox x:Name="Logbox" FontFamily="Helvetica"
                              FontWeight="Light"
                              Text="Username"
                              FontSize="20"
@@ -90,7 +90,7 @@
 
 
                 <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
-                    <PasswordBox FontFamily="Helvetica"
+                    <PasswordBox x:Name="Passbox" FontFamily="Helvetica"
                              FontWeight="Light"
                              Password="Password"
                              FontSize="20"
@@ -112,13 +112,15 @@
                         Height="2"
                         Background="White"
                         Opacity="0.5"/>
+                
+               
 
 
                 <StackPanel Orientation="Vertical" Margin="0,50,0,0">
                     <Button x:Name="Loginbtn"  Width="257" Height="40" Content="LOGIN" 
                               Margin="60,0,60,0" Click="Button_Click"
                               Style="{StaticResource LoginStyle}"/>
-                    <Button x:Name="Exitbtn"  Height="31" Margin="62,10,62,0"  Content="Exit" 
+                    <Button x:Name="Exitbtn" Foreground="red"  Height="31" Margin="62,10,62,0"  Content="Exit" 
                             Style="{StaticResource LoginStyle}" Click="Button_Click_1"/>
                 </StackPanel>
 

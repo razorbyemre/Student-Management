@@ -53,11 +53,11 @@
             <StackPanel Orientation="Vertical">
                 <Button x:Name="Savebtn" Content="Save" Height="35" Margin="89,100,82,0" 
                     RenderTransformOrigin="0.223,4.883"
-                    Style="{StaticResource LoginStyle}"/>
+                    Style="{StaticResource LoginStyle}" Click="Savebtn_Click"/>
 
                 <Button x:Name="Exitbtn" Content="Exit" Height="35" Margin="89,20,82,0" 
                     RenderTransformOrigin="0.223,4.883"
-                    Style="{StaticResource LoginStyle}"/>
+                    Style="{StaticResource LoginStyle}" Click="Exitbtn_Click"/>
 
 
             </StackPanel>

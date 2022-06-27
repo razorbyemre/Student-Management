@@ -5,32 +5,33 @@ using System.Linq;
 
 namespace DAL.Entities
 {
-    public partial class SMdbContext : DbContext
+    public partial class SMContext : DbContext
     {
-        public SMdbContext()
-            : base("name=SMdbContext")
+        public SMContext()
+            : base("name=SMContext")
         {
+           // Database.SetInitializer(new MigrateDatabaseToLatestVersion<SMContext, DAL.Migrations.Configuration>());
         }
 
-        public virtual DbSet<Discipline> Disciplines { get; set; }
+        public virtual DbSet<Disciplines> Disciplines { get; set; }
         public virtual DbSet<Faculty> Faculties { get; set; }
         public virtual DbSet<Group> Groups { get; set; }
         public virtual DbSet<Mark> Marks { get; set; }
         public virtual DbSet<Message> Messages { get; set; }
         public virtual DbSet<MessageJoin> MessageJoins { get; set; }
         public virtual DbSet<Student> Students { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Teacher> Teachers { get; set; }
         public virtual DbSet<TypeMark> TypeMarks { get; set; }
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<UserStudent> UserStudents { get; set; }
+        public virtual DbSet<UserTeacher> UserTeachers { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Discipline>()
+            modelBuilder.Entity<Disciplines>()
                 .Property(e => e.DisciplineTitle)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Discipline>()
+            modelBuilder.Entity<Disciplines>()
                 .HasMany(e => e.Marks)
                 .WithRequired(e => e.Discipline)
                 .WillCascadeOnDelete(false);
@@ -95,26 +96,32 @@ namespace DAL.Entities
                 .WithRequired(e => e.TypeMark)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<User>()
-                .Property(e => e.Login)
+            modelBuilder.Entity<UserStudent>()
+                .Property(e => e.StudentLogin)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<User>()
-                .Property(e => e.Password)
+            modelBuilder.Entity<UserStudent>()
+                .Property(e => e.StudentPass)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<User>()
-                .Property(e => e.TypeUser)
-                .IsFixedLength();
-
-            modelBuilder.Entity<User>()
+            modelBuilder.Entity<UserStudent>()
                 .HasMany(e => e.Students)
-                .WithRequired(e => e.User)
+                .WithRequired(e => e.UserStudent)
+                .HasForeignKey(e => e.UserID)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<User>()
+            modelBuilder.Entity<UserTeacher>()
+                .Property(e => e.TeacherLogin)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<UserTeacher>()
+                .Property(e => e.TeacherPass)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<UserTeacher>()
                 .HasMany(e => e.Teachers)
-                .WithRequired(e => e.User)
+                .WithRequired(e => e.UserTeacher)
+                .HasForeignKey(e => e.UserID)
                 .WillCascadeOnDelete(false);
         }
     }

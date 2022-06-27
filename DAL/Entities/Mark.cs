@@ -18,7 +18,7 @@ namespace DAL.Entities
 
         public int StudentID { get; set; }
 
-        public virtual Discipline Discipline { get; set; }
+        public virtual Disciplines Discipline { get; set; }
 
         public virtual Student Student { get; set; }
 

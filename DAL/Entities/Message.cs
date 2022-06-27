@@ -20,6 +20,10 @@ namespace DAL.Entities
         [Column("Message")]
         [StringLength(2000)]
         public string Message1 { get; set; }
+        
+        [Column("To")]
+        [StringLength(50)]
+        public string To { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MessageJoin> MessageJoins { get; set; }

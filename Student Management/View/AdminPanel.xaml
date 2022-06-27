@@ -7,10 +7,16 @@
         mc:Ignorable="d"
         Title="AdminPanel" Height="550" Width="900"
         AllowsTransparency="False" Background="Transparent"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize" Loaded="AdminPanel_Loaded" >
 
     <Grid>
-        <Grid>
+        
+            <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="221*"/>
+            <ColumnDefinition Width="35*"/>
+            <ColumnDefinition Width="639*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.ColumnSpan="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="277*"/>
                 <ColumnDefinition Width="617*"/>
@@ -25,16 +31,16 @@
                     <LinearGradientBrush>
 
                         <GradientStop Color="#FFA9A9A9" Offset="0.0"/>
-                        <GradientStop Color="#FF2F4F4F" Offset="1"/>
+                        <GradientStop Color="#FF2F4F4F" Offset="0.5"/>
 
                     </LinearGradientBrush>
                 </Border.Background>
             </Border>
+         
+                <StackPanel Grid.ColumnSpan="1" Orientation="Vertical" Margin="0,0,0,0" >
 
-            <StackPanel Grid.ColumnSpan="1" Orientation="Vertical" Margin="0,0,0,0" >
-
-
-                <StackPanel Grid.Row="1" Grid.ColumnSpan="2" >
+                
+                    <StackPanel Grid.Row="1" Grid.ColumnSpan="2" >
 
                     <StackPanel Orientation="Horizontal">
                         <TextBox x:Name="UserIDBox" FontFamily="Helvetica"
@@ -56,9 +62,9 @@
                         Height="2"
                         Background="White"
                         Opacity="0.5"/>
-                    
-                    
-                    <StackPanel Orientation="Horizontal">
+
+
+                    <!--<StackPanel Orientation="Horizontal">
                         <TextBox x:Name="UserLoginBox" FontFamily="Helvetica"
                              FontWeight="Light"
                              Text="UserLogin"
@@ -163,44 +169,69 @@
                     <Border Width="277"
                         Height="2"
                         Background="White"
-                        Opacity="0.5"/>
+                        Opacity="0.5"/>-->
+
+                    
+
+                        <StackPanel Orientation="Vertical" Margin="0,20,0,0">
+
+                        <Button Content="Add User" x:Name="AddbtnUser" 
+                                BorderThickness="0" Width="214" Margin="0,0,0,0" Height="31"
+                       Style="{StaticResource LoginStyle}" RenderTransformOrigin="0.676,5.03" Click="AddbtnUser_Click" />
 
 
+                        <Button Content="Add Student" x:Name="AddbtnStudent" 
+                        BorderThickness="0" Width="214" Margin="0,10,0,0" Height="31"
+                       Style="{StaticResource LoginStyle}" RenderTransformOrigin="0.676,5.03" Click="AddbtnStudent_Click"/>
 
-                    <StackPanel Orientation="Vertical" Margin="0,20,0,0">
+                        <Button Content="Add Teacher" x:Name="AddbtnTeacher" 
+                        BorderThickness="0" Width="214" Margin="0,10,0,0" Height="31"
+                       Style="{StaticResource LoginStyle}" RenderTransformOrigin="0.676,5.03" Click="AddbtnTeacher_Click" />
 
-                    <Button Content="Add" x:Name="Addbtn" 
-                        BorderThickness="0" Width="214" Margin="0,0,0,0" Height="31"
-                       Style="{StaticResource LoginStyle}" RenderTransformOrigin="0.676,5.03" />
                         
-                         <Button Content="Update" x:Name="Updatebtn"
-                        BorderThickness="0" Width="214" Margin="0,10,0,0" Height="31"
-                       Style="{StaticResource LoginStyle}" RenderTransformOrigin="0.676,5.03" />
-                      
-                        <Button Content="Delete"  x:Name="Deletebtn"
-                        BorderThickness="0" Width="214" Margin="0,10,0,0" Height="31"
-                       Style="{StaticResource LoginStyle}" RenderTransformOrigin="0.676,5.03" />
-
                         <Button Content="Add Faculty"  x:Name="AddFacultybtn"
                         BorderThickness="0" Width="214" Margin="0,10,0,0" Height="31"
-                       Style="{StaticResource LoginStyle}" RenderTransformOrigin="0.676,5.03" />
+                       Style="{StaticResource LoginStyle}" RenderTransformOrigin="0.676,5.03" Click="AddFacultybtn_Click" />
 
+                        <Button Content="Delete"  x:Name="Deletebtn"
+                        BorderThickness="0" Width="214" Margin="0,10,0,0" Height="31"
+                       Style="{StaticResource LoginStyle}" RenderTransformOrigin="0.676,5.03" Click="Deletebtn_Click" />
+                            
+                        <Button Content="List User T" x:Name="ListUserTeacherbtn" BorderThickness="0" Width="130" Margin="0,10,10,0" Height="31"
+                                Style="{StaticResource LoginStyle}" RenderTransformOrigin="0.676,5.03" Click="ListUserTeacherbtn_Click" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                            
+                        <Button Content="List User S" x:Name="ListUserStudentbtn" HorizontalAlignment="Left" BorderThickness="0" Width="130" Margin="5,-30,0,0" Height="31"
+                                Style="{StaticResource LoginStyle}" RenderTransformOrigin="0.676,5.03" Click="ListUserStudentbtn_Click"/>
+
+                        <Button Content="List Teachers" x:Name="ListTeacherbtn" BorderThickness="0" Width="130" Margin="0,10,10,0" Height="31"
+                                Style="{StaticResource LoginStyle}" RenderTransformOrigin="0.676,5.03" Click="ListTeacher_Click" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+                        <Button Content="List Students" x:Name="ListStudentbtn" HorizontalAlignment="Left" BorderThickness="0" Width="130" Margin="5,-30,0,0" Height="31"
+                                Style="{StaticResource LoginStyle}" RenderTransformOrigin="0.676,5.03" Click="ListStudent_Click"/>
 
                         <Button Content="Exit" x:Name="Exitbtn"
-                        BorderThickness="0" Width="127" Margin="0,25,0,0" Height="31"
-                       Style="{StaticResource LoginStyle}" RenderTransformOrigin="0.676,5.03" />
+                        BorderThickness="0" Width="127" Margin="0,125,0,0" Height="31"
+                       Style="{StaticResource LoginStyle}" RenderTransformOrigin="0.676,5.03" Click="Exitbtn_Click" />
 
-                        
+
                     </StackPanel>
 
                 </StackPanel>
 
             </StackPanel>
-
+           
             <StackPanel Grid.Column="2" Orientation="Horizontal">
-                <DataGrid Name="Datagrid"  Width="617"/>
-            </StackPanel>
+                <DataGrid Name="AdminDatagrid"  Width="617" AutoGenerateColumns="True" CanUserAddRows="False">
+                    <!--<DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding Path=ID}" Visibility="Visible"/>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}" Visibility="Visible"/>
+                        <DataGridTextColumn Header="UserID" Binding="{Binding Path=UserID}" Visibility="Visible"/>
+                        <DataGridTextColumn Header="GroupID" Binding="{Binding Path=GroupID}" Visibility="Visible"/>
+                    </DataGrid.Columns>-->
 
+                </DataGrid>
+            </StackPanel>
+           
 
 
         </Grid>

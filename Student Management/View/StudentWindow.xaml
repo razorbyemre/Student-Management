@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Student_Management"
-        mc:Ignorable="d"
-        Title="StudentWindow" Height="550" Width="900">
+        mc:Ignorable="d" ResizeMode="NoResize"
+        Title="StudentWindow" Height="550" Width="900" Loaded="Student_Loaded" >
     
     <Grid>
         <Grid>
@@ -46,15 +46,20 @@
 
                         <Button x:Name="Markbtn" Content="Marks" 
                         BorderThickness="0" Width="214" Margin="0,0,0,0" Height="31"
-                       Style="{StaticResource LoginStyle}" RenderTransformOrigin="0.676,5.03" />
+                       Style="{StaticResource LoginStyle}" RenderTransformOrigin="0.676,5.03" Click="Markbtn_Click" />
 
-                        <Button Content="Messages" 
+                        <Button x:Name="Messagebtn" Content="Send Message" 
                         BorderThickness="0" Width="214" Margin="0,10,0,0" Height="31"
-                       Style="{StaticResource LoginStyle}" RenderTransformOrigin="0.676,5.03" />
+                       Style="{StaticResource LoginStyle}" RenderTransformOrigin="0.676,5.03" Click="SendMessage_Click" />
+                       
+                        <Button x:Name="Messagebtn2" Content="Messages" 
+                        BorderThickness="0" Width="214" Margin="0,10,0,0" Height="31"
+                       Style="{StaticResource LoginStyle}" RenderTransformOrigin="0.676,5.03" Click="Messages_Click" />
 
-                        <Button Content="Exit" 
-                        BorderThickness="0" Width="127" Margin="0,360,0,0" Height="31"
-                       Style="{StaticResource LoginStyle}" RenderTransformOrigin="0.676,5.03" />
+
+                        <Button x:Name="Exitbtn" Content="Exit" 
+                        BorderThickness="0" Width="127" Margin="0,330,0,0" Height="31"
+                       Style="{StaticResource LoginStyle}" RenderTransformOrigin="0.676,5.03" Click="Button_Click" />
 
 
                     </StackPanel>
@@ -64,7 +69,7 @@
             </StackPanel>
 
             <StackPanel Grid.Column="2" Orientation="Horizontal">
-                <DataGrid Name="Datagrid"  Width="617"/>
+                <DataGrid Name="StudentDatagrid"  Width="617"/>
             </StackPanel>
 
 

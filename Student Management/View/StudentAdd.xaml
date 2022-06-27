@@ -1,0 +1,98 @@
+﻿<Window x:Class="Student_Management.View.StudentAdd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Student_Management.View"
+        mc:Ignorable="d" Loaded="StudentAdd_loaded"
+        Title="StudentAdd" Height="450" Width="380"  ResizeMode="NoResize">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Border  Grid.ColumnSpan="1">
+                <Border.Background>
+                    <LinearGradientBrush>
+
+                        <GradientStop Color="#FFA9A9A9" Offset="0.0"/>
+                        <GradientStop Color="#FF2F4F4F" Offset="1"/>
+
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+
+
+            <StackPanel Orientation="Vertical" Grid.Column="1">
+
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="StudentNameBox" FontFamily="Helvetica"
+                             FontWeight="Light"
+                             Text="Enter Name"
+                             FontSize="20"
+                             HorizontalAlignment="Center"
+                             Foreground="White"
+                             Background="Transparent"
+                             BorderThickness="0"
+                             Width="235"
+                             HorizontalContentAlignment="Left"
+                             Opacity="0.5"
+                             Height="35"
+                             Margin="43,100,0,0"/>
+
+                </StackPanel>
+                <Border Width="277"
+                        Height="2"
+                        Background="White"
+                        Opacity="0.5"/>
+
+
+                <Label Content="Group ID:" Margin="60,0,0,0"   Foreground="White"
+                             Background="Transparent"/>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                    <ComboBox x:Name="GroupIDComboBox"  Width="250" Height="20" Margin="60,0,0,0">
+                        
+                    </ComboBox>
+                </StackPanel>
+                <Border Width="250"
+                        Height="2"
+                        Background="White"
+                        Opacity="0.5"/>
+
+                <Label Content="User ID:" Margin="60,0,0,0"   Foreground="White"
+                             Background="Transparent"/>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                    <ComboBox x:Name="UserIDComboBox"  Width="250" Height="20" Margin="60,0,0,0" SelectionChanged="UserIDComboBox_SelectionChanged">
+                     
+                    </ComboBox>
+                </StackPanel>
+                <Border Width="250"
+                        Height="2"
+                        Background="White"
+                        Opacity="0.5"/>
+
+
+
+
+                <StackPanel Orientation="Vertical">
+                    <Button x:Name="Savebtn" Content="Save" Height="35" Margin="89,90,82,0" 
+                    RenderTransformOrigin="0.223,4.883"
+                    Style="{StaticResource LoginStyle}" Click="Savebtn_Click"/>
+
+
+                    <Button x:Name="Exitbtn" Content="Exit" Height="35" Margin="89,10,82,0" 
+                    RenderTransformOrigin="0.223,4.883"
+                    Style="{StaticResource LoginStyle}" Click="Exitbtn_Click"/>
+
+
+                </StackPanel>
+
+
+            </StackPanel>
+
+        </Grid>
+
+    </Grid>
+</Window>

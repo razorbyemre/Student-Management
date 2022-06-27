@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Student_Management"
         mc:Ignorable="d"
+        ResizeMode="NoResize"
         Title="MessageWindow" Height="450" Width="650">
     <Grid>
         <Grid>
@@ -42,13 +43,13 @@
                              HorizontalContentAlignment="Left"
                              Opacity="0.5"
                              Height="35"
-                             Margin="-80,10,0,0"/>
+                             Margin="-80,20,0,0"/>
 
             </StackPanel>
             <Border Width="277"
                         Height="2"
                         Background="White"
-                        Opacity="0.5" Margin="0,40,44,377"/>
+                        Opacity="0.5" Margin="0,28,44,377"/>
 
 
             <Border BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left"
@@ -62,20 +63,25 @@
                         <TranslateTransform Y="-0.635"/>
                     </TransformGroup>
                 </Border.RenderTransform>
-                <TextBox x:Name="MessageBox"  HorizontalAlignment="Center" Height="195" Width="595"
+                
+                <TextBox x:Name="MessagesBox"  HorizontalAlignment="Center" Height="195" Width="595"
                          Margin="-1,-2,-1,0" TextWrapping="Wrap" Text="Message" 
                          VerticalAlignment="Center" />
             </Border>
+            
+            
 
             <StackPanel Orientation="Vertical" Margin="0,0,0,0">
 
                 <Button x:Name="Sendbtn" Content="Send" 
                         BorderThickness="0" Width="214" Margin="89,360,339,0" Height="31"
-                       Style="{StaticResource LoginStyle}" RenderTransformOrigin="0.676,5.03" />
+                       Style="{StaticResource LoginStyle}" RenderTransformOrigin="0.676,5.03" 
+                        Click="Send_Message_Click"/>
 
                 <Button x:Name="Backbtn" Content="Back" 
                         BorderThickness="0" Width="214" Margin="250,-30,0,0" Height="31"
-                       Style="{StaticResource LoginStyle}" RenderTransformOrigin="0.676,5.03" />
+                       Style="{StaticResource LoginStyle}" 
+                        RenderTransformOrigin="0.676,5.03"  Click="Back_Click"/>
                 
             </StackPanel>
 

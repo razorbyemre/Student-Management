@@ -13,7 +13,7 @@ namespace DAL.Repositories.Concretes
     {
         protected DbContext _contex;
         private DbSet<T> _dbset;
-        protected SMdbContext db;
+       
 
         public Repository(DbContext context)
         {
@@ -26,7 +26,8 @@ namespace DAL.Repositories.Concretes
             _dbset.Add(entity);
         }
 
-        public List<T> GetAll()
+
+        List<T> IRepository<T>.GetAll()
         {
             return _dbset.ToList();
         }
@@ -43,7 +44,7 @@ namespace DAL.Repositories.Concretes
 
         public void Update(T entity)
         {
-            db.Entry(entity).State = EntityState.Modified;
+            _contex.Entry(entity).State = EntityState.Modified;
         }
     }
 }

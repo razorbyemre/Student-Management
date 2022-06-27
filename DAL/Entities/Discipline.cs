@@ -7,10 +7,10 @@ namespace DAL.Entities
     using System.Data.Entity.Spatial;
 
     [Table("Discipline")]
-    public partial class Discipline
+    public partial class Disciplines
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Discipline()
+        public Disciplines()
         {
             Marks = new HashSet<Mark>();
         }

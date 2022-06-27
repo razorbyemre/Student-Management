@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BLL.Interfaces;
+using BLL.Models;
+using BLL;
 
 namespace Student_Management.TeacherButtonWindows
 {
@@ -19,9 +22,35 @@ namespace Student_Management.TeacherButtonWindows
     /// </summary>
     public partial class LectureWindow : Window
     {
-        public LectureWindow()
+        IDbCRUD db;
+        DisciplineModel discipline = new DisciplineModel();
+        public LectureWindow(IDbCRUD context)
         {
+            db = context;
             InitializeComponent();
+        }
+
+        private void Savebtn_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                discipline.DisciplineTitle = LectureBox.Text;
+                db.CreateDiscipline(discipline);
+                if (discipline != null)
+                    MessageBox.Show("Lecture succesfuly added !");
+
+                LectureBox.Clear();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Something went wrong! ");
+            }
+        }
+
+        private void Exitbtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+
         }
     }
 }

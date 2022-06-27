@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6D365B46-586B-423A-AA6E-BF60F063953C}</ProjectGuid>
+    <ProjectGuid>{DC1E0A7F-CD52-4C9C-B6E2-87658016C7EE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DAL</RootNamespace>
@@ -12,6 +13,8 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,10 +35,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -56,21 +59,57 @@
     <Compile Include="Entities\Mark.cs" />
     <Compile Include="Entities\Message.cs" />
     <Compile Include="Entities\MessageJoin.cs" />
-    <Compile Include="Entities\SMdbContext.cs" />
+    <Compile Include="Entities\SMContext.cs" />
     <Compile Include="Entities\Student.cs" />
-    <Compile Include="Entities\sysdiagram.cs" />
     <Compile Include="Entities\Teacher.cs" />
     <Compile Include="Entities\TypeMark.cs" />
-    <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\UserStudent.cs" />
+    <Compile Include="Entities\UserTeacher.cs" />
+    <Compile Include="Migrations\202201261219309_initialMigration.cs" />
+    <Compile Include="Migrations\202201261219309_initialMigration.designer.cs">
+      <DependentUpon>202201261219309_initialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204060922025_Mig2.cs" />
+    <Compile Include="Migrations\202204060922025_Mig2.designer.cs">
+      <DependentUpon>202204060922025_Mig2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Abstracts\IRepository.cs" />
+    <Compile Include="Repositories\Abstracts\IUnitofWork.cs" />
+    <Compile Include="Repositories\Concretes\DisciplineRepository.cs" />
+    <Compile Include="Repositories\Concretes\FacultyRepository.cs" />
+    <Compile Include="Repositories\Concretes\GroupRepository.cs" />
+    <Compile Include="Repositories\Concretes\MarkRepository.cs" />
+    <Compile Include="Repositories\Concretes\MessageJoinRepository.cs" />
+    <Compile Include="Repositories\Concretes\MessageRepository.cs" />
     <Compile Include="Repositories\Concretes\Repository.cs" />
-    <Compile Include="Repositories\Concretes\UserRepository.cs" />
+    <Compile Include="Repositories\Concretes\StudentRepository.cs" />
+    <Compile Include="Repositories\Concretes\TeacherRepository.cs" />
+    <Compile Include="Repositories\Concretes\TypeMarkRepository.cs" />
+    <Compile Include="Repositories\Concretes\UnitofWork.cs" />
+    <Compile Include="Repositories\Concretes\UserStudentRepository.cs" />
+    <Compile Include="Repositories\Concretes\UserTeacherRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202201261219309_initialMigration.resx">
+      <DependentUpon>202201261219309_initialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204060922025_Mig2.resx">
+      <DependentUpon>202204060922025_Mig2.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>
